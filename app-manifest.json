@@ -1,6 +1,14 @@
 {
   "name": "Smart Studying",
   "short_name": "Smart Studying",
+  "share_target": {
+    "action": "share.html",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
   "lang": "en-US",
   "start_url": "/",
   "display": "standalone",
