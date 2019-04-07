@@ -47,22 +47,22 @@ function onload(){
   .then(
     function(response) {
       if (response.status !== 200) {
-					document.title = "Error " + response.status;
-					document.getElementById("title").innerHTML = "<h1>" + "Error " + response.status + "<h1>";
-					document.getElementById("view").innerHTML = "Error " + response.status;
+	document.title = "Error " + response.status;
+	document.getElementById("title").innerHTML = "<h1>" + "Error " + response.status + "<h1>";
+	document.getElementById("view").innerHTML = "Error " + response.status;
         return;
       }
 
       // Examine the text in the response
       response.json().then(function(data) {
-				document.title = data.title;
-		    document.getElementById("title").innerHTML = "<h1>" + data.title + "<h1>";
-				document.getElementById("stat").innerHTML = data.state;
-				document.getElementById("grade").innerHTML = data.grade;
-				document.getElementById("date").innerHTML = data.addedin;
-		    document.getElementById("view").innerHTML = data.content.join("\n");
-				addhistory();
-				ok = true;
+		document.title = data.title;
+		document.getElementById("title").innerHTML = "<h1>" + data.title + "<h1>";
+		document.getElementById("stat").innerHTML = data.state;
+		document.getElementById("grade").innerHTML = data.grade;
+		document.getElementById("date").innerHTML = data.addedin;
+		document.getElementById("view").innerHTML = data.content.join("\n");
+		addhistory();
+		ok = true;
       });
     }
   )
@@ -135,8 +135,8 @@ function Offline(){
 function Share(){
 	if (navigator.share && navigator.canShare()) {
 		navigator.share({
-      title: document.title,
-      url: location.href,
+      		title: document.title,
+      		url: location.href
   	})
     .catch((error) => prompt("Copy This Link",location.href));
 	}else{
