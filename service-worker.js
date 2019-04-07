@@ -10,6 +10,7 @@ self.addEventListener("install", function(event) {
           '/js/index.js',
           'index.json',
           'history.html',
+          'share.html',
         ]);
       })
   );
