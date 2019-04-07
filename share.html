@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Smart Studying - Share</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="/js/index.js" charset="utf-8"></script>
+    <link rel="manifest" href="app-manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Smart Studying">
+    <meta name="apple-mobile-web-app-title" content="Smart Studying">
+    <meta name="theme-color" content="#F1F1F1">
+    <meta name="msapplication-navbutton-color" content="#F1F1F1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="/index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" sizes="128x128" href="/images/touch/icon-128x128.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="/images/touch/icon-128x128.png">
+    <link rel="icon" sizes="192x192" href="icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/images/touch/icon-192x192.png">
+    <link rel="icon" sizes="256x256" href="/images/touch/icon-256x256.png">
+    <link rel="apple-touch-icon" sizes="256x256" href="/images/touch/icon-256x256.png">
+    <link rel="icon" sizes="384x384" href="/images/touch/icon-384x384.png">
+    <link rel="apple-touch-icon" sizes="384x384" href="/images/touch/icon-384x384.png">
+    <link rel="icon" sizes="512x512" href="/images/touch/icon-512x512.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/images/touch/icon-512x512.png">
+  </head>
+  <body>
+    <header>
+      <h1>Share</h1>
+    </header>
+    <div id="view">
+      <p>
+      <b>href:</b> <code><span id="href"></span></code>
+    </p>
+    <p>
+      <b>Query String Parameters:</b><br>
+      <b>title:</b> <code><span id="title"></span></code><br>
+      <b>text:</b> <code><span id="text"></span></code><br>
+      <b>url:</b> <code><span id="url"></span></code>
+    </p>
+    </div>
+    <script>
+   window.addEventListener('DOMContentLoaded', () => {
+     document.getElementById('href').textContent = window.location.href;
+     const parsedUrl = new URL(window.location);
+     document.getElementById('title').textContent = getQueryVariable('title');
+     document.getElementById('text').textContent = getQueryVariable('text');
+     document.getElementById('url').textContent = getQueryVariable('url');
+   });
+   </script>
+  </body>
+</html>
