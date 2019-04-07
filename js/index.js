@@ -133,13 +133,14 @@ function Offline(){
 	window.location.href = "history.html";
 }
 function Share(){
-	if (navigator.share && navigator.canShare()) {
-		navigator.share({
-      		title: document.title,
-      		url: location.href
-  	})
+    if ('share' in navigator) {
+    navigator.share({
+      	  title: document.title,
+	  text: document.title,
+      	  url: location.href,
+     })
     .catch((error) => prompt("Copy This Link",location.href));
-	}else{
-		prompt("Copy This Link",location.href);
-	}
+    }else{
+	prompt("Copy This Link",location.href);
+    }
 }
