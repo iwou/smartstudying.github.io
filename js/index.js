@@ -326,7 +326,7 @@ function Offline(){
 	window.location.href = "history.html";
 }
 function Share(){
-	if (navigator.share && navigator.canShare()) {
+	if ('share' in navigator) {
 		navigator.share({
       title: document.title,
       url: location.href,
