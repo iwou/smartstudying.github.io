@@ -128,10 +128,10 @@ var
 			replace: "<hr />",
 			type: BLOCK,
 		},
-    {
-      // Colored text
+    		{
+      			// Colored text
 			//
-			pattern: /~\[([^\]]+)\]([^\)]+)~/g,
+			pattern: /~\[([^\[]+)\[([^\]]+)\]/g,
 			replace: "<div style='display:inline;color:#$1'>$2</div>",
 			type: INLINE,
     },
