@@ -132,7 +132,7 @@ var
       			// Colored text
 			//
 			pattern: /~\[([^\[]+)\[([^\]]+)\]/g,
-			replace: "<div style='display:inline;color:#$1'>$2</div>",
+			replace: "<span style='color:#$1'>$2</span>",
 			type: INLINE,
     },
 	],
