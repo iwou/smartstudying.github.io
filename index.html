@@ -1,46 +1,126 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <title>Smart Studying</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <script src="/js/index.js" charset="utf-8"></script>
-    <link rel="manifest" href="app-manifest.json">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Smart Studying">
-    <meta name="apple-mobile-web-app-title" content="Smart Studying">
-    <meta name="theme-color" content="#F1F1F1">
-    <meta name="msapplication-navbutton-color" content="#F1F1F1">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="msapplication-starturl" content="/index.html">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" sizes="128x128" href="/images/touch/icon-128x128.png">
-    <link rel="apple-touch-icon" sizes="128x128" href="/images/touch/icon-128x128.png">
-    <link rel="icon" sizes="192x192" href="icon-192x192.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="/images/touch/icon-192x192.png">
-    <link rel="icon" sizes="256x256" href="/images/touch/icon-256x256.png">
-    <link rel="apple-touch-icon" sizes="256x256" href="/images/touch/icon-256x256.png">
-    <link rel="icon" sizes="384x384" href="/images/touch/icon-384x384.png">
-    <link rel="apple-touch-icon" sizes="384x384" href="/images/touch/icon-384x384.png">
-    <link rel="icon" sizes="512x512" href="/images/touch/icon-512x512.png">
-    <link rel="apple-touch-icon" sizes="512x512" href="/images/touch/icon-512x512.png">
-  </head>
-  <body onload="onload()">
-    <header id="title">
-      <h1 class="loading">Loading</h1>
-    </header>
-    <div id="state">
-      <button type="button" class="btn info" name="button" onclick="Back()"><i class="fas fa-arrow-left"></i> Back</button> |
-      <button type="button" class="btn info" name="button"><i class="fas fa-info-circle"></i> Status: <div class="btntext" id="stat">Unknown</div></button> |
-      <button type="button" class="btn info" name="button"><i class="fas fa-graduation-cap"></i> Grade: <div class="btntext" id="grade">Unknown</div></button> |
-      <button type="button" class="btn info" name="button"><i class="fas fa-calendar-day"></i> Added In: <div class="btntext" id="date">Unknown</div></button> |
-      <button type="button" id="offbtn" class="btn danger" name="button" onclick="Offline()">Offline</button> |
-      <button type="button" class="btn info" name="button" onclick="Share()"><i class="fas fa-share"></i> Share</button>
-    </div>
-    <div id="view">
-      <h2 class="loading">Loading</h2>
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="app-manifest.json">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="application-name" content="Smart Studying">
+        <meta name="apple-mobile-web-app-title" content="Smart Studying">
+        <meta name="theme-color" content="#F1F1F1">
+        <meta name="msapplication-navbutton-color" content="#F1F1F1">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="msapplication-starturl" content="/index.html">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" sizes="128x128" href="/images/touch/icon-128x128.png">
+        <link rel="apple-touch-icon" sizes="128x128" href="/images/touch/icon-128x128.png">
+        <link rel="icon" sizes="192x192" href="icon-192x192.png">
+        <link rel="apple-touch-icon" sizes="192x192" href="/images/touch/icon-192x192.png">
+        <link rel="icon" sizes="256x256" href="/images/touch/icon-256x256.png">
+        <link rel="apple-touch-icon" sizes="256x256" href="/images/touch/icon-256x256.png">
+        <link rel="icon" sizes="384x384" href="/images/touch/icon-384x384.png">
+        <link rel="apple-touch-icon" sizes="384x384" href="/images/touch/icon-384x384.png">
+        <link rel="icon" sizes="512x512" href="/images/touch/icon-512x512.png">
+        <link rel="apple-touch-icon" sizes="512x512" href="/images/touch/icon-512x512.png">
+        <title>Smart Studying</title>
+        <style>
+            body, html {
+                height: 100%;
+                margin: 0;
+            }
+
+            a:link, a:visited, a:hover, a:active {
+                color: white;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+            .bgimg {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/geometry-1023846_1920.jpg');
+                height: 100%;
+                background-position: center;
+                background-size: cover;
+                position: relative;
+                color: white;
+                font-family: "Courier New", Courier, monospace;
+                font-size: 25px;
+            }
+
+            .topleft {
+                position: absolute;
+                top: 0;
+                left: 16px;
+            }
+
+            .bottomleft {
+                position: absolute;
+                bottom: 0;
+                left: 16px;
+            }
+
+            .middle {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+            hr {
+                margin: auto;
+                width: 40%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bgimg">
+            <div class="topleft">
+                <p>Smart Studying</p>
+            </div>
+            <div class="middle">
+                <h1>COMING SOON</h1>
+                <hr>
+                <p id="counter"></p>
+            </div>
+            <div class="bottomleft">
+                <p>
+                    <a href="https://ali.js.org/">@alibouhrouche</a>
+                </p>
+            </div>
+        </div>
+        <script type="text/javascript">
+            if ('serviceWorker'in navigator) {
+                navigator.serviceWorker.register('/service-worker.js');
+            }
+            // Set the date we're counting down to
+            var countDownDate = new Date("Jan 1, 2020 00:00:00").getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+
+                // Get todays date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now an the count down date
+                var distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the result in an element with id="demo"
+                document.getElementById("counter").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+                // If the count down is finished, write some text
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("counter").innerHTML = "EXPIRED";
+                }
+            }, 1000);
+        </script>
+    </body>
 </html>

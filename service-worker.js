@@ -1,4 +1,5 @@
-var version = 'v1::1';
+var version = 'v1::1::comingsoon';
+
 self.addEventListener("install", function(event) {
   event.waitUntil(
     caches
@@ -6,10 +7,6 @@ self.addEventListener("install", function(event) {
       .then(function(cache) {
         return cache.addAll([
           '/',
-          '/css/index.css',
-          '/js/index.js',
-          'index.json',
-          'history.html',
           'share.html',
         ]);
       })
